@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+---
+
+# Your rule content
+
+Git commit message
+- 具体格式参考这份文档 [git-commit-style-guide.md](mdc:.cursor/md/git-commit-style-guide.md)
+- Always respond in 中文
+- 最好只使用 [feature] [bugfix] 这两种

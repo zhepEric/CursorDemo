@@ -1,0 +1,24 @@
+---
+description: Android 特定规范
+globs: 
+---
+
+# Your rule content
+
+Android 特定规范
+
+基本原则
+
+- 使用清晰整洁的架构，参考Google推荐的jectpack组件
+- 使用仓库模式进行数据持久化
+- 使用 MVI 模式管理 viewmodels 中的状态和事件，并在 activities/fragments 中触发和渲染
+- 使用 ViewBinding 管理视图
+- 使用 Flow/LiveData 管理 UI 状态
+- 使用 xml 和 fragments 而不是 jetpack compose
+- 使用 Material 3 构建 UI
+- 使用 ConstraintLayout 布局
+
+测试
+
+- 使用标准的 widget 测试
+- 为每个 api 模块编写集成测试

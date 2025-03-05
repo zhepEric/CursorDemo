@@ -1,0 +1,38 @@
+---
+description: miuimusicglobal 规则
+globs: 
+---
+
+# Your rule content
+miuimusicglobal project
+
+[readme.md](mdc:readme.md)
+
+- app 项目启动模块，由它来调用其他模块
+- base 项目基础模块，由业务模块调用
+- business 项目基础模块，由业务模块调用
+- common 项目基础模块，由业务模块调用
+- asm 业务模块，负责处理日常的开发业务，一般开发只在这里修改
+    - asm asm业务中的基础模块,属于第一个版本欧洲业务模块
+        - account 账号业务，负责登录，注销
+        - data 数据请求，负责数据库，网络请求，数据解析等
+        - di 注解模块
+        - download 下载模块，下载歌曲
+        - ext kotlin 扩展函数，全局使用
+        - manager 底层基础模块接口实现，负责与其他模块进行交互
+        - pay 支付模块，负责google支付
+        - player 针对asm业务调用播放器拦截器，负责具体播放流的解析
+        - search 搜索模块
+        - ui 页面展示模块
+            - artist 艺术家页面
+            - base ui 基础页面
+            - dialog ui dialog页面
+            - download ui下载页面
+            - main ui 首页
+            - message ui 消息页面
+            - rank ui 排行版
+    - nct asm业务中的nct模块,属于东南亚业务模块
+    - ws asm业务中的qobuz模块，属于第二个版本的欧洲业务模块
+    - asm2 asm业务中的qobuz兜底模块，属于第二个版本的欧洲业务的兜底模块
+- 其他模块暂不需要了解
+
