@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            app:title="@string/title_online" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Featured Playlists -->
+                <LinearLayout
+                    android:id="@+id/featured_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/featured_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/featured_playlists"
+                        android:textAppearance="?attr/textAppearanceTitleLarge" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/featured_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:clipToPadding="false"
+                        android:orientation="horizontal"
+                        android:paddingBottom="16dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="3"
+                        tools:listitem="@layout/item_playlist" />
+                </LinearLayout>
+
+                <!-- Top Charts -->
+                <LinearLayout
+                    android:id="@+id/top_charts_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/top_charts_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/top_charts"
+                        android:textAppearance="?attr/textAppearanceTitleLarge" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/top_charts_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:clipToPadding="false"
+                        android:orientation="horizontal"
+                        android:paddingBottom="16dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="3"
+                        tools:listitem="@layout/item_playlist" />
+                </LinearLayout>
+
+                <!-- New Releases -->
+                <LinearLayout
+                    android:id="@+id/new_releases_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/new_releases_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/new_releases"
+                        android:textAppearance="?attr/textAppearanceTitleLarge" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/new_releases_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:clipToPadding="false"
+                        android:orientation="horizontal"
+                        android:paddingBottom="16dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="3"
+                        tools:listitem="@layout/item_playlist" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout> 

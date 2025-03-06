@@ -1,3 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CursorDemo</string>
+    <string name="app_name">MusicHub</string>
+    
+    <!-- Bottom Navigation -->
+    <string name="title_local">本地</string>
+    <string name="title_online">在线</string>
+    <string name="title_search">搜索</string>
+    
+    <!-- Permissions -->
+    <string name="permission_storage_rationale">需要存储权限来访问本地音乐文件</string>
+    <string name="permission_notification_rationale">需要通知权限来显示播放控制</string>
+    <string name="permission_granted">权限已授予</string>
+    <string name="permission_denied">权限被拒绝，部分功能可能无法使用</string>
+    
+    <!-- Player -->
+    <string name="play">播放</string>
+    <string name="pause">暂停</string>
+    <string name="next">下一首</string>
+    <string name="previous">上一首</string>
+    <string name="shuffle">随机播放</string>
+    <string name="repeat">重复播放</string>
+    
+    <!-- Local Music -->
+    <string name="no_music_found">未找到音乐文件</string>
+    <string name="scanning_music">正在扫描音乐文件…</string>
+    <string name="sort_by_name">按名称排序</string>
+    <string name="sort_by_date">按日期排序</string>
+    <string name="sort_by_duration">按时长排序</string>
+    
+    <!-- Online Music -->
+    <string name="featured_playlists">推荐歌单</string>
+    <string name="top_charts">排行榜</string>
+    <string name="new_releases">新歌速递</string>
+    <string name="load_more">加载更多</string>
+    <string name="network_error">网络错误，请检查网络连接</string>
+    
+    <!-- Search -->
+    <string name="search_hint">搜索音乐、歌手、专辑</string>
+    <string name="no_results">未找到相关结果</string>
+    <string name="recent_searches">最近搜索</string>
+    <string name="clear_history">清除历史记录</string>
+    
+    <!-- Player Controls -->
+    <string name="play_pause">播放/暂停</string>
 </resources>

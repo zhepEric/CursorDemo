@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorSurface"
+    android:elevation="8dp"
+    android:paddingVertical="8dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/albumArt"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_album"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Medium"
+        tools:src="@drawable/ic_album" />
+
+    <TextView
+        android:id="@+id/songTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="聆听音乐"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        app:layout_constraintBottom_toTopOf="@+id/artistName"
+        app:layout_constraintEnd_toStartOf="@+id/playPauseButton"
+        app:layout_constraintStart_toEndOf="@+id/albumArt"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Song Title" />
+
+    <TextView
+        android:id="@+id/artistName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="?attr/textAppearanceBodySmall"
+        android:textColor="?android:attr/textColorSecondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/playPauseButton"
+        app:layout_constraintStart_toEndOf="@+id/albumArt"
+        app:layout_constraintTop_toBottomOf="@+id/songTitle"
+        tools:text="Artist Name" />
+
+    <ImageButton
+        android:id="@+id/playPauseButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/play_pause"
+        android:src="@drawable/ic_play_arrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nextButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/nextButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/next"
+        android:src="@drawable/ic_skip_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout> 

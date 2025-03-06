@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_local">
+
+    <fragment
+        android:id="@+id/navigation_local"
+        android:name="com.example.musichub.ui.local.LocalMusicFragment"
+        android:label="@string/title_local"
+        tools:layout="@layout/fragment_local_music" />
+
+    <fragment
+        android:id="@+id/navigation_online"
+        android:name="com.example.musichub.ui.online.OnlineMusicFragment"
+        android:label="@string/title_online"
+        tools:layout="@layout/fragment_online_music" />
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.example.musichub.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" />
+
+</navigation> 

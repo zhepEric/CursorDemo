@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/playlist_cover"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/playlist_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                tools:text="Playlist Title" />
+
+            <TextView
+                android:id="@+id/playlist_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary"
+                tools:text="Playlist description that might be longer than one line" />
+
+            <TextView
+                android:id="@+id/song_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?android:attr/textColorSecondary"
+                tools:text="50 首" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView> 
