@@ -2,6 +2,7 @@ package com.example.musichub.ui.online
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.media3.common.util.Log
 import com.example.musichub.R
 import com.example.musichub.data.model.Playlist
 import com.example.musichub.data.repository.MusicRepository
@@ -35,7 +36,7 @@ class OnlineMusicViewModel @Inject constructor(
                 val featured = musicRepository.getFeaturedPlaylists()
                 val charts = musicRepository.getTopCharts()
                 val newReleases = musicRepository.getNewReleases()
-
+                Log.i("OnlineMusicViewModel", "loadData: $charts")
                 _uiState.update {
                     it.copy(
                         featuredPlaylists = featured,

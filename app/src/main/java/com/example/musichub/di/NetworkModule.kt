@@ -18,7 +18,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val BASE_URL = "https://api.example.com/" // Replace with actual API base URL
+    private const val BASE_URL = "https://ws.audioscrobbler.com/2.0/"
     private const val CACHE_SIZE = 10L * 1024L * 1024L // 10MB cache
 
     @Provides

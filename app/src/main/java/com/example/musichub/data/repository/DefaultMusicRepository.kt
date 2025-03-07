@@ -4,10 +4,12 @@ import android.content.ContentResolver
 import android.content.ContentUris
 import android.net.Uri
 import android.provider.MediaStore
+import androidx.media3.common.util.Log
 import com.example.musichub.data.local.LocalSong
 import com.example.musichub.data.local.LocalSongDao
 import com.example.musichub.data.model.Playlist
 import com.example.musichub.data.model.Song
+import com.example.musichub.data.remote.ApiConfig
 import com.example.musichub.data.remote.MusicService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -94,7 +96,8 @@ class DefaultMusicRepository @Inject constructor(
         return withContext(Dispatchers.IO) {
             val localResults = localSongDao.searchSongs(query).map { it.toSong() }
             val onlineResults = try {
-                musicService.searchMusic(query)
+                musicService.searchMusic(query = query, apiKey = ApiConfig.LAST_FM_API_KEY)
+                    .results.trackmatches.track.map { it.toSong() }
             } catch (e: Exception) {
                 emptyList()
             }
@@ -104,25 +107,66 @@ class DefaultMusicRepository @Inject constructor(
 
     override suspend fun getFeaturedPlaylists(): List<Playlist> {
         return withContext(Dispatchers.IO) {
-            musicService.getFeaturedPlaylists()
+            try {
+                val response = musicService.getFeaturedPlaylists(apiKey = ApiConfig.LAST_FM_API_KEY)
+                response.tracks.track.map { track ->
+                    Playlist(
+                        id = track.url.hashCode().toString(),
+                        name = track.name,
+                        description = "By ${track.artist.name}",
+                        imageUrl = track.image.lastOrNull { it.size == "large" }?.text?.let { Uri.parse(it).toString() } ?:"",
+                        songCount = 1
+                    )
+                }
+            } catch (e: Exception) {
+                emptyList()
+            }
         }
     }
 
     override suspend fun getTopCharts(): List<Playlist> {
         return withContext(Dispatchers.IO) {
-            musicService.getTopCharts()
+            try {
+                val response = musicService.getTopCharts(apiKey = ApiConfig.LAST_FM_API_KEY)
+                Log.i("DefaultMusicRepository", "response: $response")
+                response.tracks.track.map { track ->
+                    Playlist(
+                        id = track.url.hashCode().toString(),
+                        name = track.name,
+                        description = "By ${track.artist.name}",
+                        imageUrl = track.image.lastOrNull { it.size == "large" }?.text?.let { Uri.parse(it).toString() } ?:"",
+                        songCount = 1
+                    )
+                }
+            } catch (e: Exception) {
+                Log.i("DefaultMusicRepository", "Exception: $e ${e.message}")
+                emptyList()
+            }
         }
     }
 
     override suspend fun getNewReleases(): List<Playlist> {
         return withContext(Dispatchers.IO) {
-            musicService.getNewReleases()
+            try {
+                val response = musicService.getNewReleases(apiKey = ApiConfig.LAST_FM_API_KEY)
+                response.tracks.track.map { track ->
+                    Playlist(
+                        id = track.url.hashCode().toString(),
+                        name = track.name,
+                        description = "By ${track.artist.name}",
+                        imageUrl = track.image.lastOrNull { it.size == "large" }?.text?.let { Uri.parse(it).toString() } ?:"",
+                        songCount = 1
+                    )
+                }
+            } catch (e: Exception) {
+                emptyList()
+            }
         }
     }
 
     override suspend fun getPlaylistSongs(playlistId: String): List<Song> {
-        return withContext(Dispatchers.IO) {
-            musicService.getPlaylistSongs(playlistId)
-        }
+        // Since Last.fm API doesn't have a direct playlist concept,
+        // we'll return an empty list for now
+        return emptyList()
     }
 } 

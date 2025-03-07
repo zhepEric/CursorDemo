@@ -32,12 +32,12 @@ class OnlineMusicAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(playlist: Playlist) {
-            binding.playlistTitle.text = playlist.title
+            binding.playlistTitle.text = playlist.name
             binding.playlistDescription.text = playlist.description
             binding.songCount.text = "${playlist.songCount} 首"
 
             Glide.with(binding.playlistCover)
-                .load(playlist.coverUrl)
+                .load(playlist.imageUrl)
                 .centerCrop()
                 .into(binding.playlistCover)
 
